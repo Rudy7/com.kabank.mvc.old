@@ -1,0 +1,9 @@
+@charset "UTF-8";
+#frame{width:700px; height:500px; margin:0 auto; border:1px solid grey;}
+#frame tr{width:150px; height:80px; margin:0 auto; border:1px solid grey;}
+#frame tr th{width:100px; height:60px; margin:0 auto; border:1px solid grey;}
+#frame tr td{width:100px; height:60px; margin:0 auto; border:1px solid grey;}
+
+
+
+

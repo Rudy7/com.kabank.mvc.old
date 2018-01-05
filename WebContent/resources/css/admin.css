@@ -1,0 +1,26 @@
+@charset "UTF-8";
+#admin_div{width:900px; height:600px; margin:0 auto; border:1px solid grey; margin-top:70px }
+#admin_title{text-align:center; height:60px; border:1px solid grey; background-color:orange;}
+#admin_aside{float:left; width:170px; height:537px;  border:1px solid grey; background-color:lightgray;}
+#admin_table{margin:0 auto; margin-top:150px;}
+#admin_table tr{width:600px; height:120px; margin-align:center; border:1px solid grey;}
+#admin_table tr td{width:170px; height:90px; text-align:center; border:1px solid grey;}
+
+
+
+
+
+
+
+
+/* @charset "UTF-8";
+*{margin: 0px; padding: 0px}
+#admin_title{margin:0 auto; width: 300px;}
+#admin_div {margin:0 auto; width: 1000px; height:600px;}
+#admin_aside {width:150px; height:400px; background:orange; float:left; margin-left:100px; border:2px solid gray;}
+
+#admin_section{width:400px; height:400px; float:left; }
+#admin_table{width:500px; height:400px; margin:0auto; text-align:center; background:orange; border:2px solid gray;}
+table, tr{text-align:center;}
+#admin_table tr td {margin:0auto; text-align:center;}
+#create_table_btn {} */
