@@ -19,7 +19,3 @@ public class CommonSQL {
 
 
 
-/*public String getCount() {          //메소드의 기본 필수
-	String foo = "SELECT COUNT(*) AS count FROM" + tname;
-	return foo;
-}*/

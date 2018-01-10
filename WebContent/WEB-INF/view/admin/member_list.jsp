@@ -1,17 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "java.sql.*" %>
 <%@ page import = "java.util.*" %>
-
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-	<title>Index</title>
-</head>
-<body>	
   <div style="width:1000px; height:600px; border:1px solid grey; margin:0 auto;">
 	<header>
-		<h1 style="text-align:center">관리자 페이지 메인</h1> 
+		<h1 style="text-align:center">관리자 회원 리스트 검색</h1> 
 	</header>
 		<aside>
 			<table style="width:150px; height:519px; background:orange; float:left; border:1px solid grey;">

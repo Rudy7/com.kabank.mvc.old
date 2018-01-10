@@ -5,5 +5,9 @@ import java.util.List;
 import com.kabank.mvc.domain.MemberBean;
 
 public interface MemberDAO {
-	public List<MemberBean> work();
+
+	public void insertMember(MemberBean member);
+
+	public void findMember(MemberBean member);
+	
 }

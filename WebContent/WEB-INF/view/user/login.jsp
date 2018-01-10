@@ -1,15 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<title>index</title>
-<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/img/favicon.ico" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/common.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/index.css" />
-
-</head>
-<body>
 <div id="wrapper3">
 		<header id="index_header">
 			<a href="#">비트 캠프 프로젝트</a>
@@ -20,11 +9,11 @@
 			<tr >
 			<td colspan="5">
 			
-				<form action="">
+				<form id="index_login_box" action="${pageContext.request.contextPath}/user/auth.do">
 				<table>
 						<tr>
 	   						<td>
-	   							<input id="id" name="id" type="text" placeholder="ID"> <!--id=자바스크립트는, name=호출  -->
+	   							<input id="id" name="id" type="text" value="kim" placeholder="ID"> <!--id=자바스크립트에서사용(.js.jsp), name=자바에서사용(.java)-->
 						    </td>
 						    <td rowspan="2">
 						    	<button id="index_login_btn" >로그인</button>
@@ -32,7 +21,7 @@
 						</tr>
 						<tr>
 							<td>
-								<input id="pass" name="pass" type="text"  placeholder="PASSWORD" />
+								<input id="pass" name="pass" type="text" value="1" placeholder="PASSWORD" />
 							</td>
 						</tr>	
 				</table>
@@ -58,25 +47,27 @@
 document.querySelector('#go_join_link')
 		.addEventListener("click",
 		function (){
+			alert("로그인창에서 회원가입으로 가기직전");
 			location.href="${pageContext.request.contextPath}/user/join.do";
-},false);
+		},false);
 
 document.querySelector('#go_jdbc_link')
 		.addEventListener("click",
 		function(){
 			location.href="${pageContext.request.contextPath}/common/jdbc_test.do";
-},false);
+		},false);
+
 document.querySelector('#index_login_btn')
 		.addEventListener("click",
 		function(){
+			alert("============로그인 클릭이벤트 발생============");
 			document.querySelector('#index_login_box').submit();
 		},false);
+		
 document.querySelector('#go_admin_link').addEventListener("click",
 		function(){
 		location.href="${pageContext.request.contextPath}/admin/main.do";
-}
-		,false);
-		
+		},false); 		
 </script>
 </body>
 </html>

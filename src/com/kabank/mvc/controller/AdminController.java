@@ -12,13 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.kabank.mvc.service.AdminService;
 import com.kabank.mvc.serviceImpl.AdminServiceImpl;
 
-@WebServlet({"/admin/main.do","/admin/create_table.do"})
+@WebServlet({"/admin/main.do","/admin/create_form.do","/admin/create_table.do"})
 public class AdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("====================관리자 컨트롤로 진입================");
+		System.out.println("====================관리자 컨트롤로 진입 후================");
 		String servletPath = request.getServletPath();
 		String[] arr = servletPath.split("/");
 		String dir = arr[1];
@@ -27,25 +27,28 @@ public class AdminController extends HttpServlet {
 		String dest ="";
 		switch (action) {
 		case "main":
+			dir = "admin";
 			dest = action; 
 			break;
-		case "create_table":
+		case "create_form":
+			System.out.println("생성 클릭 2");
 			String tname = request.getParameter("table_name");
 			AdminService service = new AdminServiceImpl();
-			service.makeTable(tname);
+			service.createTable(tname);
+			dir = "admin";
 			dest = "main";
 			break;
+		case "create_table":
+			dir = "admin";
+			dest = "member_list";
 		default:
 			break;
 		}
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/" + dir + "/" + action + ".jsp" );
-		rd.forward(request, response);
-		
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/" +dir+ "/" +dest+ ".jsp" );
+		rd.forward(request, response);		
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	}
-	
 }
 

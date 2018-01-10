@@ -1,18 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<title>index</title>
-		<link rel="shortcut icon" href="${pageContext.request.contextPath} }/resources/img/favicon.ico" />
-		<link rel="stylesheet" href="${pageContext.request.contextPath} }/resources/css/common.css" />
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/index.css" />
-<%@ include file= "../common/head.jsp" %>	<!-- 헤드는 바디 밖에 둬야한다.  -->
-</head>
-<body>
 <div id="wrapper">
-	
 	<section>
 		<article>
 			<header id="join_second_header">
@@ -20,7 +7,7 @@
 						<h1>회원 가입</h1>		
 					</hgroup>
 			</header>
-		<form id="join_form" action="${pageContext.request.contextPath}/user/login.do"> 
+		<form id="join_form" action="${pageContext.request.contextPath}/user/signup.do"> 
 			<table style="margin-left: 250px" id= "member_table">
 				<tr>
 					<td>
@@ -29,53 +16,53 @@
 				</tr>
 				<tr>
 					<td>
-						아이디*    <input id="join_id" name="id" type="text"  value="" placeholder="id" />
+						아이디*    <input id="id" name="id" type="text"  value="" placeholder="id" />
 								   <button id="check_dupl_btn" name="check_cupl_btn">중복확인</button>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						비밀번호 숫자4자리*    <input id="join_pass" name="pass" pattern="[0-9]{4}" type="text" value=""  placeholder="pass" />
+						비밀번호 숫자4자리*    <input id="pass" name="pass" pattern="[0-9]{4}" type="text" value=""  placeholder="pass" />
 					</td>
 				</tr>
 				<tr>
 					<td>
-						이름*    <input type="text" name="name" value=""  placeholder="name" />
+						이름*    <input  id="name" name="name" value="" type="text" placeholder="name" />
 					</td>
 				</tr>
 				<tr>
 					<td>
-						주민번호*   <input pattern="[0-9]{13}" name="ssn" type="text" value="" placeholder="ssn" />
+						주민번호*   <input pattern="[0-9]{13}" id="ssn" name="ssn" type="text" value="" placeholder="ssn" />
 									 <!-- <input pattern="[0-9]{6}" type="text" name="name" value=""  placeholder="ssn1" /> -
 									 <input pattern="[0-9]{7}" type="text" name="name" value=""  placeholder="ssn2" /> -->
 					</td>
 				</tr>
 				<tr>
 					<td>
-						핸드폰번호 010-  <input pattern="[0-9]{8}" name="phone" type="text" value="" placeholder="phone" />
+						핸드폰번호 010-  <input pattern="[0-9]{8}" id="phone" name="phone" type="text" value="" placeholder="phone" />
 										 <!--  <input pattern="[0-9]{4}" type="tel" name="name" value=""  placeholder="phone"/>-
 						  				  <input pattern="[0-9]{4}" type="tel" name="name" value=""  placeholder="phone"/> -->
 					</td>
 				</tr>
 				<tr>
 					<td>
-						이메일*    <input type="email" name="email" value=""  placeholder="email" />
+						이메일*    <input id="email" name="email" type="email"  value=""  placeholder="email" />
 					</td>	
 				</tr>
 				<tr>
 					<td>
-						프로필    <input type="text" name="profile" value=""  placeholder="profile"/>
+						프로필    <input id="profile" name="profile" value="" type="text" placeholder="profile"/>
 					</td>	
 				</tr>
 				<tr>
 					<td>
-						집주소    <input type="text" name="addr" value=""  placeholder="addr"/>
+						집주소    <input id="addr" name="addr" value="" type="text" placeholder="addr"/>
 								
 					</td>
 				</tr>	
 				<tr>
 					<td>
-						날짜    <input type="date" name="date" value=""  placeholder="date"/> 
+						날짜    <input id="date" name="date" value="" type="date" placeholder="date"/> 
 									
 					</td>
 				</tr>	
@@ -97,13 +84,11 @@
 <script>
 document.querySelector('#join_confirm_btn').addEventListener("click",joinConfirm,false);
 document.querySelcctor('#check_dupl_btn').addEventListener("click",checkDupl,false);
-
 function joinConfirm(){
+	alert("================멤버 컨트롤러로 출발===============");
 	var form = document.querySelector('#join_form');
-	form.submit();   
-} 
+	form.submit();} 
 function checkDupl(){
-	location.href="${pageContext.request.contextPath}/";
-}
+	location.href="${pageContext.request.contextPath}/";}
 </script>	
 </html>

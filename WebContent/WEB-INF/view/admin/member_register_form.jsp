@@ -1,8 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!doctype html>
-<html lang="en">
-<%@ include file= "../common/head.jsp" %>
-<body>	
   <div style="width:1000px; height:580px; border:1px solid grey; margin:0 auto;">
 	<header>
 		<h1 style="text-align:center">관리자 페이지 메인</h1> 

@@ -1,9 +1,18 @@
 @charset "UTF-8";
-#frame{width:700px; height:500px; margin:0 auto; border:1px solid grey;}
+#frame{width:700px; height:400px; margin:0 auto; border:1px solid grey;}
 #frame tr{width:150px; height:80px; margin:0 auto; border:1px solid grey;}
 #frame tr th{width:100px; height:60px; margin:0 auto; border:1px solid grey;}
 #frame tr td{width:100px; height:60px; margin:0 auto; border:1px solid grey;}
 
+#memberInfo{width:700px; height:250px; border:1px solid grey; margin:0 auto;}
+#pin{width:200px; height:200px;}
+#memberInfo tr{width:100px; height:50px; border:1px solid grey;}
+#memberInfo tr td{width:100px; height:50px; border:1px solid grey;}
 
+#result_view1{width:50px; height:15px;}
+#result_view2{width:50px; height:15px;}
+#result_view3{width:50px; height:15px;}
+#result_view4{width:50px; height:15px;}
+#result_view5{width:50px; height:15px;}
 
-
+/* background-color:grey */
