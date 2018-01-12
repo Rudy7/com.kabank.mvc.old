@@ -26,7 +26,7 @@
 				</tr>
 				<tr>
 					<td>성별</td>
-					<td>여자</td>
+					<td>남자</td>
 					<td>주소</td>
 					<td>${sessionScope.user.addr}</td>
 				</tr>
@@ -99,19 +99,30 @@
 							결 과<input id="result_view5" type="text" /> 
 						</td>
 					</tr>
+				</table>
+			 </form>	<br />
+				<table id="pass_update_css" >	
 					<tr>
 						<td colspan="6">
 							<input type="hidden" name="id" value="null" />
-							<button style="width:100px; height:50px;" id="attend_result">확인</button>
+							<button id="pass_update" >비밀번호 변경</button>
+							<button id="attend_result" >확인</button>
 						</td>
 					</tr>
 				</table>		
-		   </form>
+		
 		</article>
 	</section>		
 <%@ include file= "../common/footer.jsp" %>	 <!-- 푸터는 보여지는 곳이라 바디 안에 있어야 한다. -->
 </body>
 	<!-- <script src="../../js/bitcamp/bitcamp.js"></script> -->
+	<script>
+document.querySelector('#pass_update').addEventListener("click",
+		function(){
+		alert("비트캠프메인-비밀번호 변경페이지로 이동 직전");
+		location.href="${ctx}/user.do?cmd=move&page=changePass";
+		},false);	
+	</script>
 </html>
 
 

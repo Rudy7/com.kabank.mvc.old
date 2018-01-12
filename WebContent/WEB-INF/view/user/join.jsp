@@ -69,7 +69,7 @@
 				<tr>
 					<td>
  						<input id="join_confirm_btn" type="button" value="확인" style="width:100px;"   />
- 						<input id="" type="button" value="취소" style="width:100px;"   />
+ 						<input id="check_dupl_btn" type="button" value="취소" style="width:100px;"   />
 					</td>
 				</tr>
 			</table> 
@@ -89,6 +89,7 @@ function joinConfirm(){
 	var form = document.querySelector('#join_form');
 	form.submit();} 
 function checkDupl(){
-	location.href="${pageContext.request.contextPath}/";}
+	location.href="${ctx}/user/login.do";
+}
 </script>	
 </html>

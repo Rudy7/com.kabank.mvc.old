@@ -9,19 +9,22 @@
 			<tr >
 			<td colspan="5">
 			
-				<form id="index_login_box" action="${pageContext.request.contextPath}/user/auth.do">
+				<form id="index_login_box" action="${ctx}/user.do">
 				<table>
 						<tr>
 	   						<td>
 	   							<input id="id" name="id" type="text" value="kim" placeholder="ID"> <!--id=자바스크립트에서사용(.js.jsp), name=자바에서사용(.java)-->
 						    </td>
 						    <td rowspan="2">
-						    	<button id="index_login_btn" >로그인</button>
+						    	<button id="index_login_btn"  >로그인</button>   	
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<input id="pass" name="pass" type="text" value="1" placeholder="PASSWORD" />
+								<input type="hidden" name="cmd" value="login" />
+								<input type="hidden" name="dir" value="bitcamp" />
+								<input type="hidden" name="page" value="main" />
 							</td>
 						</tr>	
 				</table>
@@ -48,13 +51,13 @@ document.querySelector('#go_join_link')
 		.addEventListener("click",
 		function (){
 			alert("로그인창에서 회원가입으로 가기직전");
-			location.href="${pageContext.request.contextPath}/user/join.do";
+			location.href="${ctx}/user.do?cmd=move&page=join";
 		},false);
 
 document.querySelector('#go_jdbc_link')
 		.addEventListener("click",
 		function(){
-			location.href="${pageContext.request.contextPath}/common/jdbc_test.do";
+			location.href="${ctx}/common/jdbc_test.do";
 		},false);
 
 document.querySelector('#index_login_btn')
@@ -66,7 +69,7 @@ document.querySelector('#index_login_btn')
 		
 document.querySelector('#go_admin_link').addEventListener("click",
 		function(){
-		location.href="${pageContext.request.contextPath}/admin/main.do";
+		location.href="${ctx}/admin/main.do";
 		},false); 		
 </script>
 </body>

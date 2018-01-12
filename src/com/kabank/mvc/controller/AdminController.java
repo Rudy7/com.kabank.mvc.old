@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kabank.mvc.enums.PathEnum;
 import com.kabank.mvc.service.AdminService;
 import com.kabank.mvc.serviceImpl.AdminServiceImpl;
 
@@ -20,9 +21,9 @@ public class AdminController extends HttpServlet {
 			throws ServletException, IOException {
 		System.out.println("====================관리자 컨트롤로 진입 후================");
 		String servletPath = request.getServletPath();
-		String[] arr = servletPath.split("/");
+		String[] arr = servletPath.split(PathEnum.SEPARATOR.value);
 		String dir = arr[1];
-		String[] arr2 = arr[2].split("\\.");
+		String[] arr2 = arr[2].split(PathEnum.DOT.value);
 		String action = arr2[0];
 		String dest ="";
 		switch (action) {
@@ -44,7 +45,9 @@ public class AdminController extends HttpServlet {
 		default:
 			break;
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/" +dir+ "/" +dest+ ".jsp" );
+		RequestDispatcher rd = request.getRequestDispatcher(PathEnum.VIEW.value +dir+ 
+				PathEnum.SEPARATOR.value +dest+ 
+				PathEnum.EXTENSION.value);
 		rd.forward(request, response);		
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

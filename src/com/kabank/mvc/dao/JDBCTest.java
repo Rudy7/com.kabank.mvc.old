@@ -2,13 +2,18 @@ package com.kabank.mvc.dao;
 
 import java.sql.*;
 
+import com.kabank.mvc.enums.DMLEnum;
+import com.kabank.mvc.enums.OracleEnum;
+
 public class JDBCTest {
 	public static void main(String[] args) {
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "bitcamp", "bitcamp");
+			Class.forName(OracleEnum.ORACLE_DRIVER.value);
+			Connection conn = DriverManager.getConnection(OracleEnum.ORACLE_CONNECTION_URL.value,
+														  OracleEnum.ORACLE_USERNAME.value, 
+														  OracleEnum.ORACLE_PASSWORD.value);
 			Statement stmt = conn.createStatement();
-			String sql = "SELECT COUNT(*) AS count FROM tab";      /* COUNT(*)가 전체수를 의미함*/
+			String sql = DMLEnum.COUNT.toString();      /* COUNT(*)가 전체수를 의미함*/
 			ResultSet rs = stmt.executeQuery(sql);
 			String count = "";
 			while(rs.next()) {

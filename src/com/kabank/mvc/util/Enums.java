@@ -4,10 +4,10 @@ import java.util.HashMap;
 
 public class Enums {
 	public enum MemberColumn {
-		ID,Pass,NAME,SSN,PHONE,EMAIL,PROFILE,ADDR	
+		ID,PASS,NAME,SSN,PHONE,EMAIL,PROFILE,ADDR	
 	}
 	public enum AttendColumn {
-		ID,pass,Name,SSN,PHONE,EMAIL,PROFILE,ADDR
+		ID,PASS,NAME,SSN,PHONE,EMAIL,PROFILE,ADDR
 	}	
 	public enum Table{
 		MEMBER,ATTEND,ADMIN
@@ -24,15 +24,16 @@ public class Enums {
 			return map.get(key);
 		}
 	 public static String getMemberColumn() {
-		 String tmp = "";
-		 for(Enums.MemberColumn c : Enums.MemberColumn.values()) {
-			 if(c.ordinal()==6) {
-				 	tmp += c;
-			 }else {
-				    tmp += c +",";
-			 }
-		 }
-		return tmp;
+		 String res = "";
+		MemberColumn[] member = Enums.MemberColumn.values();
+		for(int i=0; i<member.length; i++) {
+			if(i!=member.length-1) {
+				res += member[i]+ ",";
+			}else {
+				res += member[i];
+			}
+		}
+		return res;
 	 }
 	public static String getBlanks(int count) {
 		String blanks = "'%s'";
