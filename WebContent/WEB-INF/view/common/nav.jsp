@@ -6,7 +6,7 @@
 			</a>
 		</li>
 		<li>
-			<a id="kakao" href="#">카카오뱅크
+			<a id="kakao" href="${ctx}/user.do?cmd=move&dir=kakao&page=main">카카오뱅크
 			</a>
 		</li>
 		<li>

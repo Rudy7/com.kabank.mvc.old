@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.kabank.mvc.enums.Action;
 import com.kabank.mvc.iterator.ParamsIterator;
 
-public class MoveCommand implements IOrder{
+public class MoveCommand implements IOrder{  //page와 dir만 건드린다. 다른건 안한다.
 	Map<?,?> map;
 	String servletPath;
 	public MoveCommand(HttpServletRequest request) {

@@ -9,4 +9,8 @@ public interface MemberDAO {
 	public void insertMember(MemberBean member);
 	public MemberBean selectMemberById(MemberBean member);
 	public MemberBean login();
+	public void updatePass(MemberBean member);
+	public void newPass_alter(MemberBean member);
+	public void nowId_leave();
+	public void memberTuple();
 }

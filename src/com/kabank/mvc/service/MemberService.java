@@ -7,5 +7,10 @@ public interface MemberService {
 	public MemberBean findMemberById(MemberBean member);
 	public void joinMember(MemberBean member);
 	public MemberBean login();
+	public void make(MemberBean param);
+	public void changePass(MemberBean member);
+	public void newPass_update(MemberBean member);
+	public void nowIdDelete();
+	public void memberInfo();
 }
 

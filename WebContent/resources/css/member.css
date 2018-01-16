@@ -1,4 +1,7 @@
 @charset "UTF-8";
 #join_second_header{height: 80px; text-align: center;}
-#table style{ margin:0 auto}
-#member_table{ margin:0 auto; }
+#join_form{width:400px; height:500px; margin:0 auto; border:1px solid gray; }
+
+#member_table{width:400px; height:400px; margin:0 auto; border:1px solid gray; }
+#join_confirm_btn{width:100px;}
+#check_dupl_btn{width:100px;}

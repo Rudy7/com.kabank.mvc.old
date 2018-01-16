@@ -25,5 +25,18 @@ public enum DDLEnum {
 					+" status VARCHAR2(10)"
 				    +")";
 		}
+	},
+	CREATE_TABLE_BANK{
+		@Override
+		public String toString() {
+			return "CREATE TABLE bank("
+					+"customNum VARCHAR2(20) PRIMARY KEY,"
+					+"accountNum VARCHAR2(20),"
+					+"money VARCHAR2(20),"
+					+"id VARCHAR2(20),"
+					+"FOREIGN KEY(id) references member(id) on delete cascade"     
+					+")";
+		}
 	}
+	
 }

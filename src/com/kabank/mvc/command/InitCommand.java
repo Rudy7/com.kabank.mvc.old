@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.kabank.mvc.factory.ActionFactory;
 import com.kabank.mvc.iterator.ParamsIterator;
 
-public class InitCommand implements IOrder{
+public class InitCommand implements IOrder{    //액션만 결정한다 cmd만
 	public static Command cmd; 
 	Map<?,?> map;
 	public InitCommand(HttpServletRequest request) {

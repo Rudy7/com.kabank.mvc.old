@@ -84,7 +84,7 @@
 					</tr>
 					<tr>
 						<td>
-							결 과<input id="result_view1" type="text" />
+							결 과<input id="result_view1" type="text" name="" value=""/>
 						</td>
 						<td>
 							결 과<input id="result_view2" type="text" />
@@ -105,8 +105,12 @@
 					<tr>
 						<td colspan="6">
 							<input type="hidden" name="id" value="null" />
+							<button id="leave">회원 탈퇴</button>
 							<button id="pass_update" >비밀번호 변경</button>
 							<button id="attend_result" >확인</button>
+							<input type="hidden" name="cmd" value="deleteMember" />
+							<input type="hidden" name="dir" value="user" />
+							<input type="hidden" name="page" value="login" />
 						</td>
 					</tr>
 				</table>		
@@ -122,6 +126,17 @@ document.querySelector('#pass_update').addEventListener("click",
 		alert("비트캠프메인-비밀번호 변경페이지로 이동 직전");
 		location.href="${ctx}/user.do?cmd=move&page=changePass";
 		},false);	
+document.querySelector('#leave').addEventListener("click",
+		function(){
+		alert("비트캠프메인 - 회원 탈퇴 클릭이벤트 발생");
+		location.href="${ctx}/user.do?cmd=deleteMember&userid=${sessionScope.user.id}";
+		},false);
+document.querySelector('#kakao').addEventListener("click",
+		function(){
+		alert("카카오뱅크로 출발");
+		location.href="${ctx}/"
+}
+		,false);
 	</script>
 </html>
 

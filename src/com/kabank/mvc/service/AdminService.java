@@ -4,6 +4,8 @@ public interface AdminService {
 
 	void createTable(String tname);
 
+	void kakaoCreateTable(String tname);
+
 	
 	
 

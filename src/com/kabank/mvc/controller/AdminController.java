@@ -13,7 +13,8 @@ import com.kabank.mvc.enums.PathEnum;
 import com.kabank.mvc.service.AdminService;
 import com.kabank.mvc.serviceImpl.AdminServiceImpl;
 
-@WebServlet({"/admin/main.do","/admin/create_form.do","/admin/create_table.do"})
+
+@WebServlet({"/admin/main.do","/admin/create_form.do","/admin/create_table.do","/kakao/table.do"})
 public class AdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -42,6 +43,12 @@ public class AdminController extends HttpServlet {
 		case "create_table":
 			dir = "admin";
 			dest = "member_list";
+			break;
+		case"table":
+			dir = "admin";
+			dest = "main";
+			/*service.kakaoCreateTable(tname);*/
+			break;
 		default:
 			break;
 		}

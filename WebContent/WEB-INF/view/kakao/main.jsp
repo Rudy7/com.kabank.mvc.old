@@ -7,8 +7,15 @@
 			
 	<div style="width: 300px; height: 200px; margin: 0 auto;">
 		<form action="kakao/result.jsp">
+			<button id="" name="">통장개설</button> <br />
+			<button id="" name="">입금</button> <br />
+			<button id="" name="">출금</button> <br />
+			<button id="" name="">송금</button> <br />
+			<button id="" name="">통장해지</button> <br />
+			
 			<input type="submit" value="전송" />
 		</form>
+			
 	</div>
 		</article>
 	</section>

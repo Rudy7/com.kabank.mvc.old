@@ -5,7 +5,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import com.kabank.mvc.iterator.ParamsIterator;
 
-public class LoginCommand extends Command{
+public class LoginCommand implements IOrder{   //daoimpl 에다가 id 와 pass만 준다. 
 	Map<?,?> map;
 	public LoginCommand(HttpServletRequest request) {
 		map = ParamsIterator.execute(request);

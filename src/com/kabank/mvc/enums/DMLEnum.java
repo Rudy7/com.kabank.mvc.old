@@ -30,6 +30,27 @@ public enum DMLEnum {
 		public String toString() {
 			return "'%s','%s','%s','%s','%s','%s','%s','%s'";
 		}
+	},
+	UPDATE_ID_PASS{
+		@Override
+		public String toString() {
+			return "UPDATE Member SET pass = '%s' "
+					+ "WHERE id = '%s'";
+		}	
+	},
+	DELETE_MEMBER{
+		@Override
+		public String toString() {
+			return "DELETE FROM MEMBER WHERE id='%s'";
+		}
+	},
+	INSERTION_MEMBER{
+		@Override
+		public String toString() {
+			return "INSERT INTO member(id,pass,name,ssn,phone,email,profile,addr)"
+				 + "VALUES('%s','%s','%s','%s','%s','%s','%s','%s')";
+		}
 	}
+	
 	}
 

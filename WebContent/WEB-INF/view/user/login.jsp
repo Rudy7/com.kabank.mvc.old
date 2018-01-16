@@ -10,24 +10,24 @@
 			<td colspan="5">
 			
 				<form id="index_login_box" action="${ctx}/user.do">
-				<table>
-						<tr>
-	   						<td>
-	   							<input id="id" name="id" type="text" value="kim" placeholder="ID"> <!--id=자바스크립트에서사용(.js.jsp), name=자바에서사용(.java)-->
-						    </td>
-						    <td rowspan="2">
-						    	<button id="index_login_btn"  >로그인</button>   	
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<input id="pass" name="pass" type="text" value="1" placeholder="PASSWORD" />
-								<input type="hidden" name="cmd" value="login" />
-								<input type="hidden" name="dir" value="bitcamp" />
-								<input type="hidden" name="page" value="main" />
-							</td>
-						</tr>	
-				</table>
+					<table>
+							<tr>
+		   						<td>
+		   							<input id="id" name="id" type="text" value="kim" placeholder="ID"> <!--id=자바스크립트에서사용(.js.jsp), name=자바에서사용(.java)-->
+							    </td>
+							    <td rowspan="2">
+							    	<button id="index_login_btn"  >로그인</button>   	
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input id="pass" name="pass" type="text" value="1" placeholder="PASSWORD" />
+									<input type="hidden" name="cmd" value="login" />
+									<input type="hidden" name="dir" value="bitcamp" />
+									<input type="hidden" name="page" value="main" />
+								</td>
+							</tr>	
+					</table>
 				</form>
 				<table>
 				<tr>

@@ -2,17 +2,20 @@
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
+import javax.servlet.RequestDispatcher;
 import com.kabank.mvc.command.InitCommand;
 import com.kabank.mvc.dao.MemberDAO;
 import com.kabank.mvc.domain.MemberBean;
+import com.kabank.mvc.enums.DDLEnum;
 import com.kabank.mvc.enums.DMLEnum;
 import com.kabank.mvc.enums.MemberEnum;
+import com.kabank.mvc.enums.OracleEnum;
 import com.kabank.mvc.enums.TnameEnum;
 import com.kabank.mvc.enums.Vendor;
 import com.kabank.mvc.factory.DatabaseFactory;
 import com.kabank.mvc.util.Enums;
 import com.kabank.mvc.util.Enums.MemberColumn;
+import jdk.nashorn.internal.ir.RuntimeNode.Request;
 
 public class MemberDAOImpl implements MemberDAO{
 	public static MemberDAO getInstance() {return new MemberDAOImpl();}
@@ -119,6 +122,55 @@ public class MemberDAOImpl implements MemberDAO{
 		}
 		System.out.println("===============MEMBER-D: LOGIN IN===============");
 		return member;
+	}
+	@Override
+	public void updatePass(MemberBean member) {
+		
+	}
+	
+	@Override
+	public void newPass_alter(MemberBean member) {
+		System.out.println("===============MEMBER-D: newPass_alter IN===============");
+		try {
+			StringBuffer sql = new StringBuffer(DMLEnum.UPDATE_ID_PASS.toString());
+			DatabaseFactory.create(Vendor.ORACLE)
+			.getConnection()
+			.createStatement()
+			.executeUpdate(String.format(sql.toString(), member.getPass(), member.getId()));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("===============MEMBER-D: newPass_alter OUt===============");
+	}
+	
+	@Override
+	public void nowId_leave() {
+		System.out.println("===============MEMBER-D: nowId_leave IN===============");
+		try {	
+			StringBuffer sql = new StringBuffer(DMLEnum.DELETE_MEMBER.toString());
+			DatabaseFactory.create(Vendor.ORACLE)
+			.getConnection()
+			.createStatement()
+			.executeUpdate(String.format(sql.toString(), InitCommand.cmd.getData()));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+			System.out.println("===============MEMBER-D: nowId_leave OUT===============");
+		}
+	@Override
+	public void memberTuple() {
+		System.out.println("===============MEMBER-D: memberTuple IN===============");
+		String[] arr = InitCommand.cmd.getData().split("/");
+			StringBuffer sql = new StringBuffer(DMLEnum.INSERTION_MEMBER.toString());
+			try {
+				DatabaseFactory.create(Vendor.ORACLE)
+				.getConnection()
+				.createStatement()
+				.executeUpdate(String.format(sql.toString(),arr[0],arr[1],arr[2],arr[3],arr[4],arr[5],arr[6],arr[7]));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			System.out.println("===============MEMBER-D: memberTuple OUT===============");
 	}
 }
 
