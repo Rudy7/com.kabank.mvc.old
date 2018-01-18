@@ -1,37 +1,58 @@
 package com.kabank.mvc.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import com.kabank.mvc.command.InitCommand;
+import com.kabank.mvc.command.KakaoCommand;
+import com.kabank.mvc.command.MoveCommand;
+import com.kabank.mvc.domain.MemberBean;
+import com.kabank.mvc.serviceImpl.KakaoServiceImpl;
+import com.kabank.mvc.util.DispatcherSevlet;
 
-import com.kabank.mvc.service.AdminService;
-import com.kabank.mvc.serviceImpl.AdminServiceImpl;
-
-@WebServlet("/a.do")
+@WebServlet("/kakao.do")
 public class KakaoBankController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		
-		
-	/*	System.out.println("====================KAKAO BANK-C : doGet IN================");
-		AdminService service = new AdminServiceImpl();
-		String tname = request.getParameter("kakao_tname");
-		service.kakaoCreateTable(tname);
-		System.out.println("doGet tname :" + tname);
-		dest = "main";
-		System.out.println("====================KAKAO BANK-C : doGet OUT================");*/
+			System.out.println("====================카카오뱅크 컨트롤로 진입 ================");
+			/*KakaoService service = KakaoServiceImpl.getInstance();*/
+			MemberBean member = new MemberBean();
+			InitCommand init = new InitCommand(request);
+			init.execute();
+			switch (InitCommand.cmd.getAction()) {
+			case MOVE:
+				System.out.println("==============MEMBER-C: MOVE IN============");
+				new MoveCommand(request).execute();
+				System.out.println("DEST IS " + InitCommand.cmd.getView());
+				System.out.println("==============MEMBER-C: MOVE OUT============");
+				DispatcherSevlet.send(request, response);break;
+			case OPEN_ACCOUNT:
+				System.out.println("통장개설 클릭2 KAKAOBANK-C : openAccount IN");
+				/*service = new KakaoServiceImpl();*/
+				new KakaoCommand(request).execute();
+				InitCommand.cmd.setData(((MemberBean)request.getSession().getAttribute("user")).getId());
+				KakaoServiceImpl.getInstance().openAccount();
+				System.out.println("입력할 계좌번호 :" +InitCommand.cmd.getData());
+				new MoveCommand(request).execute();
+				System.out.println("통장개설 클릭2 KAKAOBANK-C : openAccount OUT");
+				DispatcherSevlet.send(request, response); break;
+				
+			}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
+	}
+	
+	private void move(HttpServletRequest request) {
+		new MoveCommand(request).execute();
 	}
 
 }

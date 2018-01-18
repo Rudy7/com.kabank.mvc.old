@@ -13,7 +13,7 @@
 			</table>
 		</aside>
 			<section style="width:600px; height:500px; border : 1px solid grey; margin:0 auto;">
-				<form id="insert_member" action="member_register.jsp">  <!--id를 멤버_레지스터_폼 으로 줬다.   -->
+				<form id="insert_member" action="${ctx}/user.do">  <!--id를 멤버_레지스터_폼 으로 줬다.   -->
 				 <table style="width:600px; height:500px; border:1px solid grey; margin:0 auto;" >
 			     		<tr>
 			     			<td>

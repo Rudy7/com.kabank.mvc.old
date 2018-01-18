@@ -4,6 +4,5 @@ public interface AdminDAO {
 
 	void makeTable(String sql);
 
-	void kakaoCreateTable(String sql);
 
 }

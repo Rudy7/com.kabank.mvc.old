@@ -6,9 +6,9 @@
 			<h1>비트 캠프 메인</h1>
 			<table id="memberInfo">
 				<tr id="pict">
-					<td rowspan="4" id="pi"><img id="pin" src="${pageContext.request.contextPath}/resources/img/profile.jpg"/></td>
+					<td rowspan="4" id="pi"><img id="pin" src="${ctx}/resources/img/profile.jpg"/></td>
 					<td>ID</td>
-					<td>${sessionScope.user.id} </td>
+					<td>${sessionScope.user.id}</td>
 					<td>생년월일</td>
 					<td>${sessionScope.user.ssn}</td>
 				</tr>
@@ -131,12 +131,11 @@ document.querySelector('#leave').addEventListener("click",
 		alert("비트캠프메인 - 회원 탈퇴 클릭이벤트 발생");
 		location.href="${ctx}/user.do?cmd=deleteMember&userid=${sessionScope.user.id}";
 		},false);
-document.querySelector('#kakao').addEventListener("click",
+/* document.querySelector('#kakao').addEventListener("click",
 		function(){
 		alert("카카오뱅크로 출발");
 		location.href="${ctx}/"
-}
-		,false);
+		} ,false); */
 	</script>
 </html>
 

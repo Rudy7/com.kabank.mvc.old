@@ -38,11 +38,11 @@
 	<%@ include file= "../common/footer.jsp" %>
 </body>
 	<script>
-document.querySelector('#pass_update_login').addEventListener("click",
+/* document.querySelector('#pass_update_login').addEventListener("click",
 		function(){
 		alert("비밀번호가 변경되었습니다.");
 		document.querySelector('#changePass_form').submit();
-		},false);
+		},false); */
 		
 		
 	</script>

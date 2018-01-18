@@ -15,6 +15,13 @@ public class Enums {
 	public enum DML{
 		SELECT,INSERT,INTO,UPDATE,DELETE,FROM
 	}
+	public enum AccountColumn{
+		ACCOUNT_NUM,MONEY,ID,CUSTOM_NUM; 
+	}
+	public static String getSql() {
+		String sql="";
+		return sql;
+	}
 	public static String getTableName(String key) {
 		HashMap<String, String> map = new HashMap<String, String>();
 			for(Enums.Table c: Enums.Table.values()) {
@@ -47,4 +54,12 @@ public class Enums {
 		}
 		return blanks;
 	}
-}	
+	/*StringBuffer sql = new StringBuffer*/
+			/*(DMLEnum.INSERT.toString()).insert(11, " "+ TnameEnum.BANK+ " ("+Enums.getAccountColumn()+")").append("("+Enums.getBlanks(Enums.AccountColumn.values().length)+")");*/
+}			  	
+
+
+
+
+
+

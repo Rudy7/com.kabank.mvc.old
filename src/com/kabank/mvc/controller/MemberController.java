@@ -22,8 +22,6 @@ import com.kabank.mvc.factory.ActionFactory;
 import com.kabank.mvc.service.MemberService;
 import com.kabank.mvc.serviceImpl.MemberServiceImpl;
 import com.kabank.mvc.util.DispatcherSevlet;
-import com.sun.org.apache.xml.internal.security.Init;
-import sun.rmi.server.Dispatcher;
 
 @WebServlet({"/user.do"})
 public class MemberController extends HttpServlet {
@@ -93,8 +91,8 @@ public class MemberController extends HttpServlet {
 			System.out.println("----------------MEMBER-C : INSERT_MEMBER IN---------------");
 			new InsertCommand(request).execute();
 			MemberServiceImpl.getInstance().memberInfo();
-			move(request);
 			System.out.println("----------------MEMBER-C : INSERT_MEMBER OUT---------------");
+			move(request);
 			break;
 		case LOGIN:
 			System.out.println("----------------MEMBER-C : LOGIN IN---------------");

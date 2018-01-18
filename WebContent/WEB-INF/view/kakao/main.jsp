@@ -3,26 +3,29 @@
 		<article>
 <%@ include file= "../common/header.jsp" %>		
 <%@ include file= "../common/nav.jsp" %>
-
-			
-	<div style="width: 300px; height: 200px; margin: 0 auto;">
-		<form action="kakao/result.jsp">
-			<button id="" name="">통장개설</button> <br />
-			<button id="" name="">입금</button> <br />
-			<button id="" name="">출금</button> <br />
-			<button id="" name="">송금</button> <br />
-			<button id="" name="">통장해지</button> <br />
-			
-			<input type="submit" value="전송" />
-		</form>
-			
-	</div>
+			<div id="kakao_div">
+					<button id="openAccount" name="openAccount">통장개설</button> <br />
+					<button id="payIn" name="payIn">입금</button> <br />
+					<button id="payOut" name="payOut">출금</button> <br />
+					<button id="payTransfer" name="payTransfer">송금</button> <br />
+					<button id="closeAccount" name="closeAccount">통장해지</button> <br />
+					<input type="submit" value="전송" />
+				<!-- 	<input type="hidden" name="cmd" value="open-account" />
+					<input type="hidden" name="dir" value="user"/>
+					<input type="hidden" name="page" value="mypage" />  -->
+			</div>
 		</article>
 	</section>
-		<aside>
-		
-		</aside>
+	<aside>	
+	</aside>
 <%@ include file= "../common/footer.jsp" %>	
 </body>
-	<script src="../../js/kakao/kakao.js"></script>
+	<script>
+document.querySelector('#openAccount').addEventListener("click",
+		function(){
+		alert("카카오뱅크 통장개설 클릭1");
+		location.href="${ctx}/kakao.do?cmd=open-account&dir=user&page=mypage";
+		},false);
+		
+	</script>
 </html>

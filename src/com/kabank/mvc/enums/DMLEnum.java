@@ -47,8 +47,16 @@ public enum DMLEnum {
 	INSERTION_MEMBER{
 		@Override
 		public String toString() {
-			return "INSERT INTO member(id,pass,name,ssn,phone,email,profile,addr)"
+			return "INSERT INTO member(id,pass,name,ssn,phone,email,profile,addr,account)"
 				 + "VALUES('%s','%s','%s','%s','%s','%s','%s','%s')";
+		}
+	},
+	CREATE_KAKAO_ACCOUNT_NUM{
+		@Override
+		public String toString() {
+			return "INSERT INTO BANK(ACCOUNT_NUM,MONEY,ID,CUSTOM_NUM)"
+					+ "VALUES('%s','%s','%s',custom_num.nextval)";
+				
 		}
 	}
 	

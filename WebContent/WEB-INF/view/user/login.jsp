@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div id="wrapper3">
 		<header id="index_header">
-			<a href="#">비트 캠프 프로젝트</a>
+			<a href="#">프로젝트</a>
 		</header>
 		<section >
 			<article>
 		 <table id="index_table" >
 			<tr >
 			<td colspan="5">
-			
 				<form id="index_login_box" action="${ctx}/user.do">
 					<table>
 							<tr>
@@ -23,8 +22,8 @@
 								<td>
 									<input id="pass" name="pass" type="text" value="1" placeholder="PASSWORD" />
 									<input type="hidden" name="cmd" value="login" />
-									<input type="hidden" name="dir" value="bitcamp" />
-									<input type="hidden" name="page" value="main" />
+									<!-- <input type="hidden" name="dir" value="bitcamp" /> -->
+									<input type="hidden" name="page" value="mypage" />
 								</td>
 							</tr>	
 					</table>
@@ -69,7 +68,7 @@ document.querySelector('#index_login_btn')
 		
 document.querySelector('#go_admin_link').addEventListener("click",
 		function(){
-		location.href="${ctx}/admin/main.do";
+		location.href="${ctx}/admin/main.do";    /* /admin/main.do */
 		},false); 		
 </script>
 </body>

@@ -15,7 +15,6 @@ import com.kabank.mvc.enums.Vendor;
 import com.kabank.mvc.factory.DatabaseFactory;
 import com.kabank.mvc.util.Enums;
 import com.kabank.mvc.util.Enums.MemberColumn;
-import jdk.nashorn.internal.ir.RuntimeNode.Request;
 
 public class MemberDAOImpl implements MemberDAO{
 	public static MemberDAO getInstance() {return new MemberDAOImpl();}

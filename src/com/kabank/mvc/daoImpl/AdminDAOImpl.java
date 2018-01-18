@@ -5,6 +5,14 @@ import com.kabank.mvc.enums.OracleEnum;
 import java.sql.*;
 public class AdminDAOImpl implements AdminDAO {
 
+	public static AdminDAO getInstance() {
+		return new AdminDAOImpl();
+	}
+	public AdminDAOImpl() {
+		
+	}
+
+
 	@Override
 	public void makeTable(String sql) {
 		// TODO Auto-generated method stub
@@ -20,28 +28,6 @@ public class AdminDAOImpl implements AdminDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-
-	@Override
-	public void kakaoCreateTable(String sql) {
-		System.out.println("===============ADMIN-D: kakaoCreateTable IN===============");
-			try {
-				Class.forName(OracleEnum.ORACLE_DRIVER.value);
-				Connection conn = DriverManager.getConnection(OracleEnum.ORACLE_CONNECTION_URL.value,
-						OracleEnum.ORACLE_USERNAME.value,
-						OracleEnum.ORACLE_PASSWORD.value);
-				Statement stmt = conn.createStatement();
-				stmt.executeQuery(sql);
-				System.out.println("sql :" +sql);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			System.out.println("===============ADMIN-D: kakaoCreateTable OUT===============");
-	}
-
-	public static AdminDAO getInstance() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

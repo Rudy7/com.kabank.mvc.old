@@ -17,7 +17,7 @@ public class CommonController extends HttpServlet {
 	public CommonController() {
 		service = new CommonServiceImpl();
 		}
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String dir = request.getServletPath().split(PathEnum.SEPARATOR.value)[1];
 		String dest = request.getServletPath().split(PathEnum.SEPARATOR.value)[2].split(PathEnum.DOT.value)[0];
