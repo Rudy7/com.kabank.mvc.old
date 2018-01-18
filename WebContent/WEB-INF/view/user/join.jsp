@@ -66,7 +66,7 @@
 					<td>
 						날짜    <input id="date" name="date" value="" type="date" placeholder="date"/> 	
 								<input type="hidden" name="cmd" value="insert" />
-								<input type="hidden" name="dir" value="user" />
+								<!-- <input type="hidden" name="dir" value="user" /> -->
 								<input type="hidden" name="page" value="login" />
 					</td>
 				</tr>	

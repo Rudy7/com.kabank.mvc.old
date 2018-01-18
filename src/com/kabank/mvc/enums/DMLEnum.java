@@ -47,7 +47,7 @@ public enum DMLEnum {
 	INSERTION_MEMBER{
 		@Override
 		public String toString() {
-			return "INSERT INTO member(id,pass,name,ssn,phone,email,profile,addr,account)"
+			return "INSERT INTO member(id,pass,name,ssn,phone,email,profile,addr)"
 				 + "VALUES('%s','%s','%s','%s','%s','%s','%s','%s')";
 		}
 	},
@@ -55,8 +55,7 @@ public enum DMLEnum {
 		@Override
 		public String toString() {
 			return "INSERT INTO BANK(ACCOUNT_NUM,MONEY,ID,CUSTOM_NUM)"
-					+ "VALUES('%s','%s','%s',custom_num.nextval)";
-				
+					+ "VALUES('%s','%s','%s',custom_num.nextval)";	
 		}
 	}
 	

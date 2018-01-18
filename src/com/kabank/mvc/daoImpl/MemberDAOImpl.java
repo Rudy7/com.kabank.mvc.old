@@ -1,20 +1,18 @@
  package com.kabank.mvc.daoImpl;
+ 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.servlet.RequestDispatcher;
 import com.kabank.mvc.command.InitCommand;
 import com.kabank.mvc.dao.MemberDAO;
+import com.kabank.mvc.domain.AccountBean;
 import com.kabank.mvc.domain.MemberBean;
-import com.kabank.mvc.enums.DDLEnum;
+import com.kabank.mvc.enums.AccountProps;
 import com.kabank.mvc.enums.DMLEnum;
 import com.kabank.mvc.enums.MemberEnum;
-import com.kabank.mvc.enums.OracleEnum;
 import com.kabank.mvc.enums.TnameEnum;
 import com.kabank.mvc.enums.Vendor;
 import com.kabank.mvc.factory.DatabaseFactory;
-import com.kabank.mvc.util.Enums;
-import com.kabank.mvc.util.Enums.MemberColumn;
 
 public class MemberDAOImpl implements MemberDAO{
 	public static MemberDAO getInstance() {return new MemberDAOImpl();}
@@ -91,20 +89,16 @@ public class MemberDAOImpl implements MemberDAO{
 	@Override
 	public MemberBean login() {
 		System.out.println("===============MEMBER-D: LOGIN IN===============");
-		StringBuffer sql = new StringBuffer(
-				MemberEnum.LOGIN.toString());
-		String[] arr = InitCommand.cmd.getData().split("/");
-		System.out.println("ID: "+arr[0]);
-		System.out.println("PASS: "+arr[1]);
-		sql.replace(sql.indexOf("$"), sql.indexOf("$")+1, arr[0]);
-		sql.replace(sql.indexOf("@"), sql.indexOf("@")+1, arr[1]);
-		System.out.println(":::SQL:::"+sql.toString());
+		
+		System.out.println(":::SQL:::"+MemberEnum.LOGIN.toString());
 		MemberBean member = null;
+		AccountBean account = null;
+		String[] t = InitCommand.cmd.getData().split("/");
 		try {
 			ResultSet rs = DatabaseFactory.create(Vendor.ORACLE)
 					.getConnection()
 					.createStatement()
-					.executeQuery(sql.toString());
+					.executeQuery(String.format(MemberEnum.LOGIN.toString(),t[0],t[1] ) );
 			while (rs.next()) {
 				member = new MemberBean();
 				member.setId(rs.getString(MemberEnum.ID.toString()));
@@ -114,12 +108,13 @@ public class MemberDAOImpl implements MemberDAO{
 				member.setAddr(rs.getString(MemberEnum.ADDR.toString()));
 				member.setPhone(rs.getString(MemberEnum.PHONE.toString()));
 				member.setSsn(rs.getString(MemberEnum.SSN.toString()));
-				member.setProfile(rs.getString(MemberEnum.PROFILE.toString()));		
+				member.setProfile(rs.getString(MemberEnum.PROFILE.toString()));	
+				member.setAccount(account);
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("===============MEMBER-D: LOGIN IN===============");
+		System.out.println("===============MEMBER-D: LOGIN OUT===============");
 		return member;
 	}
 	@Override

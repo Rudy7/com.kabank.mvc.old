@@ -1,5 +1,13 @@
 package com.kabank.mvc.serviceImpl;
 
-public class AccountServiceImpl {
+import com.kabank.mvc.service.AccountService;
 
+public class AccountServiceImpl implements AccountService {
+	public static AccountService getInstance() {
+		return new AccountServiceImpl();
+	}
+	public AccountServiceImpl() {
+		
+	}
+	
 }

@@ -13,8 +13,7 @@ public class CommonDAOImpl implements CommonDAO{
 	String count = "";
 	@Override
 	public String selectTableCount() {
-		// TODO Auto-generated method stub
-		
+	
 		try {
 			Class.forName(OracleEnum.ORACLE_DRIVER.value);       
 			Connection conn = DriverManager.getConnection(OracleEnum.ORACLE_CONNECTION_URL.value,

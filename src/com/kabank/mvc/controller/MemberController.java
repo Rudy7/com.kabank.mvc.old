@@ -7,19 +7,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import com.kabank.mvc.command.ChangeCommand;
-import com.kabank.mvc.command.Command;
 import com.kabank.mvc.command.DeleteCommand;
 import com.kabank.mvc.command.InitCommand;
 import com.kabank.mvc.command.InsertCommand;
 import com.kabank.mvc.command.MoveCommand;
 import com.kabank.mvc.command.LoginCommand;
 import com.kabank.mvc.domain.MemberBean;
-import com.kabank.mvc.enums.Action;
 import com.kabank.mvc.enums.MemberEnum;
-import com.kabank.mvc.factory.ActionFactory;
 import com.kabank.mvc.service.MemberService;
+import com.kabank.mvc.serviceImpl.KakaoServiceImpl;
 import com.kabank.mvc.serviceImpl.MemberServiceImpl;
 import com.kabank.mvc.util.DispatcherSevlet;
 
@@ -97,14 +94,21 @@ public class MemberController extends HttpServlet {
 		case LOGIN:
 			System.out.println("----------------MEMBER-C : LOGIN IN---------------");
 			new LoginCommand(request).execute();
-			MemberBean param = MemberServiceImpl.getInstance().login();
-			if(param==null) {
-				System.out.println("로그인 실패");
+			MemberBean member2 = MemberServiceImpl.getInstance().login();
+			if(member2 == null) {
 				InitCommand.cmd.setDir("user");
 				InitCommand.cmd.setPage("login");
 			}else {
-				System.out.println("로그인 성공");
-				session.setAttribute("user", param);
+				System.out.println("=========== 로그인 성공 ===========");
+				InitCommand.cmd.setData(member2.getId());
+				MemberBean memberWithAccount = KakaoServiceImpl.getInstance().findAccountById(member2.getId());
+				if(memberWithAccount == null) {
+					System.out.println("계좌가 없는 멤버");
+					session.setAttribute("user", member2);
+				}else {
+					System.out.println("계좌가 있는 멤버");
+					session.setAttribute("user", memberWithAccount);	
+				}
 				InitCommand.cmd.setDir("bitcamp");
 				InitCommand.cmd.setPage("main");
 			}
@@ -119,4 +123,21 @@ public class MemberController extends HttpServlet {
 	private void move(HttpServletRequest request) {
 		new MoveCommand(request).execute();
 	}
+	private void login(HttpServletRequest request, HttpSession session) {		
+	}
 }
+
+
+
+/*new LoginCommand(request).execute();
+			MemberBean param = MemberServiceImpl.getInstance().login();
+			if(param==null) {
+				System.out.println("로그인 실패");
+				InitCommand.cmd.setDir("user");
+				InitCommand.cmd.setPage("login");
+			}else {
+				System.out.println("로그인 성공");
+				session.setAttribute("user", param);
+				InitCommand.cmd.setDir("bitcamp");
+				InitCommand.cmd.setPage("main");
+			}*/

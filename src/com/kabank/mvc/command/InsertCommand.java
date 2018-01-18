@@ -2,10 +2,6 @@ package com.kabank.mvc.command;
 
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
-import com.kabank.mvc.domain.MemberBean;
-import com.kabank.mvc.enums.MemberEnum;
 import com.kabank.mvc.iterator.ParamsIterator;
 
 public class InsertCommand implements IOrder{

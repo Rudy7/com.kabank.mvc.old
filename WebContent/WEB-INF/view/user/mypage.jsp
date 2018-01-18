@@ -38,7 +38,7 @@
 					</tr>
 						<tr>
 						<td>ACCOUNT</td>
-						<td colspan="3"></td>
+						<td colspan="3">${sessionScope.user.account.accountNum}</td>  <!-- user에는 어카운트넘버가 없다 -->
 						
 					</tr>
 				</table> <br />
@@ -69,10 +69,15 @@
 	</div>
 </body>
 <script>
-document.querySelector('#pass_update_login').addEventListener("click",
+document.querySelector('#pass_update').addEventListener("click",
 		function(){
-		alert("비밀번호가 변경되었습니다.");
-		document.querySelector('#changePass_form').submit();
+		alert("비트캠프메인-비밀번호 변경페이지로 이동 직전");
+		location.href="${ctx}/user.do?cmd=move&page=changePass";
+		},false);	
+document.querySelector('#leave').addEventListener("click",
+		function(){
+		alert("비트캠프메인 - 회원 탈퇴 클릭이벤트 발생");
+		location.href="${ctx}/user.do?cmd=deleteMember&userid=${sessionScope.user.id}";
 		},false);
 </script>		
 </html>
