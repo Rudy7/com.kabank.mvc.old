@@ -15,7 +15,9 @@ public class ActionFactory {
 		case "deleteMember":action=Action.LEAVE_MEMBER; break;
 		case "insert":action=Action.INSERT_MEMBER; break;
 		case "open-account":action=Action.OPEN_ACCOUNT; break;
-		
+		case "opening":action=Action.OPENING; break;
+		case "mypage":action=Action.MYPAGE; break;
+		case "logout":action=Action.LOGOUT; break;
 		default:
 			action=Action.MOVE;
 			break;

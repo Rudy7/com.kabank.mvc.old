@@ -62,6 +62,12 @@ public class MemberServiceImpl implements MemberService {
 		dao.memberTuple();
 		
 	}
+
+	@Override
+	public MemberBean findMemberById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
 

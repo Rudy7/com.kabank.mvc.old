@@ -18,21 +18,14 @@
 						</tr>
 						<tr>
 							<td>준비중</td>
-							<td><%-- 카카오 테이블 생성
-								 <form id="kakao_create_form" action="${ctx}/admin/table.do">
-									<select id="kakao_tname" name="kakao_tname" >
-										<option value="bank">bank</option>
-										<option value="member">member</option>
-									</select>
-									<button id="kakao_create_btn">생성</button>
-								</form>  --%>
-							</td>
+							<td></td>
 							<td> 테이블 생성 <br />
 								<form id="go_create_form" action="${ctx}/admin/create_form.do">   <!-- /admin/create_form.do  -->        <!--인풋이 있으면 폽으로 감싸야한다@@@@  아이디 액션 줘야한다-->
 									<select id="table_name" name="table_name">
 										<option value="member">member</option>		               <!-- 회원테이블 value : member   멤버쿼리문으로-->
 										<option value="attend">attend</option>              <!-- 출석테이블 value : attend   어텐드면 어텐드쿼리문으로-->
 										<option value="bank">bank</option>
+										<option value="mobile">mobile</option>
 									</select> 
 									<button id="create_btn">생성</button>
 								</form>
@@ -52,12 +45,22 @@ document.querySelector('#create_table_btn').addEventListener("click",
 		location.href="${ctx}/admin/create_table.do";     /* /admin/create_table.do */ 
 		},false);
 		
-document.querySelector('#kakao_create_btn').addEventListener("click",
-		function(){
-		alert("카카오 생성 클릭");
-		document.querySelector('#kakao_create_form').submit();
-		},false);	
   </script>
 </body>
 <%@ include file= "../common/footer.jsp" %>
 </html>
+
+
+							<%-- 카카오 테이블 생성
+								 <form id="kakao_create_form" action="${ctx}/admin/table.do">
+									<select id="kakao_tname" name="kakao_tname" >
+										<option value="bank">bank</option>
+										<option value="member">member</option>
+									</select>
+									<button id="kakao_create_btn">생성</button>
+								</form>  --%>
+<!-- document.querySelector('#kakao_create_btn').addEventListener("click",
+		function(){
+		alert("카카오 생성 클릭");
+		document.querySelector('#kakao_create_form').submit();
+		},false); --> 	

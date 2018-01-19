@@ -1,15 +1,9 @@
 package com.kabank.mvc.domain;
 
+import lombok.Data;
+
+@Data
 public class AccountBean {
-
-	public void setAccountNum(String string) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void setCustomNum(String string) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	private String customNum, money, accountNum;
 }
+

@@ -21,15 +21,13 @@ public class CommonController extends HttpServlet {
 			throws ServletException, IOException {
 		String dir = request.getServletPath().split(PathEnum.SEPARATOR.value)[1];
 		String dest = request.getServletPath().split(PathEnum.SEPARATOR.value)[2].split(PathEnum.DOT.value)[0];
-		CommonService service = new CommonServiceImpl();
-		
-		
+		CommonService service = new CommonServiceImpl();	
 		request.setAttribute("count", service.countTable());   //스트링값이라 ""해야한다. 
 		request        /*/WEB-INF/view/ common       /      jdbc_test   .jsp  신기하다*/
 		.getRequestDispatcher(PathEnum.VIEW.value +dir+ 
 				PathEnum.SEPARATOR.value +dest+ 
 				PathEnum.EXTENSION.value)
-		.forward(request, response);
+				.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

@@ -16,8 +16,9 @@ import com.kabank.mvc.command.LoginCommand;
 import com.kabank.mvc.domain.MemberBean;
 import com.kabank.mvc.enums.MemberEnum;
 import com.kabank.mvc.service.MemberService;
-import com.kabank.mvc.serviceImpl.KakaoServiceImpl;
+import com.kabank.mvc.serviceImpl.AccountServiceImpl;
 import com.kabank.mvc.serviceImpl.MemberServiceImpl;
+import com.kabank.mvc.serviceImpl.MobileServiceImpl;
 import com.kabank.mvc.util.DispatcherSevlet;
 
 @WebServlet({"/user.do"})
@@ -94,38 +95,93 @@ public class MemberController extends HttpServlet {
 		case LOGIN:
 			System.out.println("----------------MEMBER-C : LOGIN IN---------------");
 			new LoginCommand(request).execute();
-			MemberBean member2 = MemberServiceImpl.getInstance().login();
-			if(member2 == null) {
+			member = MemberServiceImpl.getInstance().login();
+			if(member == null) {
 				InitCommand.cmd.setDir("user");
 				InitCommand.cmd.setPage("login");
 			}else {
-				System.out.println("=========== 로그인 성공 ===========");
-				InitCommand.cmd.setData(member2.getId());
-				MemberBean memberWithAccount = KakaoServiceImpl.getInstance().findAccountById(member2.getId());
-				if(memberWithAccount == null) {
-					System.out.println("계좌가 없는 멤버");
-					session.setAttribute("user", member2);
-				}else {
-					System.out.println("계좌가 있는 멤버");
-					session.setAttribute("user", memberWithAccount);	
-				}
-				InitCommand.cmd.setDir("bitcamp");
-				InitCommand.cmd.setPage("main");
+					System.out.println("=========== 로그인 성공 ===========");
+					session.setAttribute("user", member);
+					mypage(request);
+					InitCommand.cmd.setDir("bitcamp");
+					InitCommand.cmd.setPage("main");
 			}
 			move(request);
 			System.out.println("DEST IS " +InitCommand.cmd.getView());
 			System.out.println("----------------MEMBER-C:  LOGIN OUT---------------");
 			DispatcherSevlet.send(request, response);break;
+		case MYPAGE:
+			mypage(request);
+			break;
+		case LOGOUT:
+			break;
 		default:
 			break;
 		}
 	}
+	
 	private void move(HttpServletRequest request) {
 		new MoveCommand(request).execute();
 	}
-	private void login(HttpServletRequest request, HttpSession session) {		
+	
+	public void mypage(HttpServletRequest request)  {
+		HttpSession session = request.getSession();
+		MemberBean member = (MemberBean) session.getAttribute("user");
+		//기본값은 무조건 있을 것이다. 그래서 null체크가 필요없다. 
+		//but 추가되는 객체 account, phone 는 null 일 수 있다. 
+		
+		Object[] arr = {member.getAccount(), member.getMobile(), member.getFood(), member.getLotto()};        
+		
+		InitCommand.cmd.setData(member.getId());
+		for(int i=0; i<arr.length; i++) {
+			if(arr[i]!=null) {
+				switch (i) {
+				case 0:
+					member =
+					AccountServiceImpl.getInstance().findMobileById(member.getId());
+					break;
+				case 1:
+					/*member = 
+					MobileServiceImpl.getInstance().findMobileById(member.getId());
+					break;*/
+				case 2:
+					
+					break;
+				case 3:
+					
+					break;
+				default:
+					break;
+				}
+				
+			}		
+		}
 	}
 }
+		
+		
+		/*InitCommand.cmd.setData(member.getId());
+		MemberBean memberWithAccount = KakaoServiceImpl.getInstance().findAccountById(member.getId());
+		
+		for( ) {}
+		if(memberWithAccount == null) {
+			System.out.println("계좌가 없는 멤버");
+			session.setAttribute("user", member);
+		}else {
+			System.out.println("계좌가 있는 멤버");
+			session.setAttribute("user", memberWithAccount);	
+		}
+		MemberBean memberWithMobile = MobileServiceImpl.getInstance().findMobileById(member.getId());
+		
+		if(memberWithAccount == null) {
+			System.out.println("계좌가 없는 멤버");
+			session.setAttribute("user", member);
+		}else {
+			System.out.println("계좌가 있는 멤버");
+			session.setAttribute("user", memberWithAccount);	
+	}*/
+	
+
 
 
 

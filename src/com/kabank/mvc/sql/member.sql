@@ -1,6 +1,7 @@
 select * from member;
 select * from tab;
 select * from bank;
+select * from mobile;
 
 desc member;
 update member set addr = '서울' where id = '1234';
@@ -51,7 +52,8 @@ select
 	a.account_num as 계좌번호,
 	a.money as 잔액
 from member m, bank a where m.id = a.id
-order by a.custom_num;
+order by a.custom_num
+;
 
 <!-- a는 아티팩아이디 인조키 -->
 

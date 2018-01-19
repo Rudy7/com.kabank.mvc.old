@@ -2,7 +2,7 @@
 <nav id="nav">
 	<ul>
 		<li>
-			<a id="burgerking" href="/user.do?cmd=move&dir=burgerking&page=main">버거킹
+			<a id="burgerking" href="${ctx}/user.do?cmd=move&dir=burgerking&page=main">버거킹
 			</a>
 		</li>
 		<li>
@@ -10,19 +10,19 @@
 			</a>
 		</li>
 		<li>
-			<a id="bitcamp" href="/user.do?cmd=move&dir=bitcamp&page=main">비트캠프
+			<a id="bitcamp" href="${ctx}/user.do?cmd=move&dir=bitcamp&page=main">비트캠프
 			</a>
 		</li>
 		<li>
-			<a id="sktelecom" href="/user.do?cmd=move&dir=sktelecom&page=main">SK 텔레콤
+			<a id="sktelecom" href="${ctx}/user.do?cmd=move&dir=mobile&page=main">SK 텔레콤
 			</a>
 		</li>
 		<li>
-			<a id="lotto" href="/user.do?cmd=move&dir=lotto&page=main">로또
+			<a id="lotto" href="${ctx}/user.do?cmd=move&dir=lotto&page=main">로또
 			</a>
 		</li>
 		<li>
-			<a id="mypage" href="/user.do?cmd=move&dir=user&page=mypage">마이페이지
+			<a id="mypage" href="${ctx}/user.do?cmd=move&dir=user&page=mypage">마이페이지
 			</a>
 		</li>
 		<li>

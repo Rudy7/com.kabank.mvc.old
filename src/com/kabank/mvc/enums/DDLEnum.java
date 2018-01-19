@@ -37,6 +37,18 @@ public enum DDLEnum {
 					+"FOREIGN KEY(id) references member(id) on delete cascade"     
 					+")";
 		}
+	}, 
+	CREATE_TABLE_MOBILE{
+		@Override
+		public String toString() {
+			return "CREATE TABLE Mobile("
+					+" custom_num int PRIMARY KEY,"
+					+" id VARCHAR2(20),"
+					+" phone VARCHAR2(20) not null,"
+					+" reg_date date not null,"
+					+" FOREIGN KEY(id) references member(id) on delete cascade"			
+					+")";
+		}
 	}
 	
 }

@@ -57,6 +57,13 @@ public enum DMLEnum {
 			return "INSERT INTO BANK(ACCOUNT_NUM,MONEY,ID,CUSTOM_NUM)"
 					+ "VALUES('%s','%s','%s',custom_num.nextval)";	
 		}
+	},
+	CREATE_MOBILE_OPENING_NUM{
+		@Override
+		public String toString() {
+			return "INSERT INTO MOBILE(CUSTOM_NUM,ID,PHONE,REG_DATE);"
+					+ "VALUES(custom_num.nextval,'%s','%s','%s')";
+		}
 	}
 	
 	}

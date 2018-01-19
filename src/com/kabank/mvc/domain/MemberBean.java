@@ -5,7 +5,10 @@ import lombok.Data;
 @Data
 public class MemberBean {
 	private String id, pass, name, ssn, phone, email, profile, addr ;
-	private AccountBean account;  
+	private AccountBean account; 
+	private MobileBean mobile;
+	private LottoBean lotto;
+	private FoodBean food;
 	
 	@Override
 	public String toString() {

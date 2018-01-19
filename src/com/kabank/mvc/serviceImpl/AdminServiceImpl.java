@@ -11,14 +11,13 @@ public class AdminServiceImpl implements AdminService {
 	public static AdminService getInstance() {
 		return new AdminServiceImpl();
 	}
-	public AdminServiceImpl() {
+	private AdminServiceImpl() {
 		
 	}
 
 	@Override
 	public void createTable(String tname) {
 		System.out.println("================관리자 서비스임플 진입==============");
-		AdminDAO dao = new AdminDAOImpl();
 		String sql ="";
 		switch (tname) {
 		case "member":
@@ -29,6 +28,10 @@ public class AdminServiceImpl implements AdminService {
 			break;
 		case "bank":
 			sql = DDLEnum.CREATE_TABLE_BANK.toString();
+			break;
+		case "mobile":
+			System.out.println("-------------------skTelecom 진입 : ------------------");
+			sql = DDLEnum.CREATE_TABLE_MOBILE.toString();
 			break;
 		default:
 			break;

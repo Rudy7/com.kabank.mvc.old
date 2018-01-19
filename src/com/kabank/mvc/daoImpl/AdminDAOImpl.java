@@ -8,14 +8,13 @@ public class AdminDAOImpl implements AdminDAO {
 	public static AdminDAO getInstance() {
 		return new AdminDAOImpl();
 	}
-	public AdminDAOImpl() {
+	private AdminDAOImpl() {
 		
 	}
 
 
 	@Override
 	public void makeTable(String sql) {
-		// TODO Auto-generated method stub
 		try {
 			Class.forName(OracleEnum.ORACLE_DRIVER.value);
 			Connection conn = DriverManager.getConnection(OracleEnum.ORACLE_CONNECTION_URL.value,
@@ -25,7 +24,6 @@ public class AdminDAOImpl implements AdminDAO {
 			stmt.executeQuery(sql);
 			System.out.println("넘어온 sql :" +sql);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
